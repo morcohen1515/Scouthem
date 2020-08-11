@@ -55,7 +55,7 @@ public class UserList implements Serializable{
 		
 		return null;
 	}
-	public void signUpPlayer(String playerName ,String team, String role, int age, double height, double weight, String mail, int idPlayer,String userName, String password)
+	public void signUpPlayer(String playerName ,String team, String role, String age, double height, double weight, String mail, int idPlayer,String userName, String password)
 	{
 		User P = new Player(playerName, team, role, age, height, weight, mail, idPlayer, userName, password);
 		userList.add(P);

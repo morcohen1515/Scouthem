@@ -422,8 +422,8 @@ public class SignUpScreen extends JFrame{
 	public int getPlayerHeight() {
 		return (int) heightSpinner.getValue();
 	}
-	public int getPlayerAge() {
-		return (int) playerAgeSpinner.getValue();
+	public String getPlayerAge() {
+		return  (String) playerAgeSpinner.getValue();
 	}
 	public String getPlayerRole() {
 		return (String) roleSpinner.getValue();

@@ -26,7 +26,7 @@ public class testScout {
 	@Test
 	public void addPlayerToInterestingListTest()
 	{
-		t.testSignUpPlayer("mor", "hapoel tel aviv", "center back", 15, 1.83, 76.5, "mor@gmail.com", 123456789, "mor", "1");
+		t.testSignUpPlayer("mor", "hapoel tel aviv", "center back", "15", 1.83, 76.5, "mor@gmail.com", 123456789, "mor", "1");
 		InterestListplayer = (ArrayList<User>) t.getUserList();
 		int n = InterestListplayer.size();
 		assertEquals("when adding new player , number of Interest players should be 1!",1 ,n);
@@ -36,7 +36,7 @@ public class testScout {
 	@Test
 	public void removePlayerFromInterestingListTest()
 	{
-		t.testSignUpPlayer("mor", "hapoel tel aviv", "center back", 15, 1.83, 76.5, "mor@gmail.com", 123456789, "mor", "1");
+		t.testSignUpPlayer("mor", "hapoel tel aviv", "center back", "15", 1.83, 76.5, "mor@gmail.com", 123456789, "mor", "1");
 		InterestListplayer = (ArrayList<User>) t.getUserList();
 		int n = InterestListplayer.size();
 		assertEquals("when adding new player , number of Interest players should be 1!",1 ,n);

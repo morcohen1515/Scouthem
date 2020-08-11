@@ -6,8 +6,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 import Model.Player;
-import Model.PlayerList;
 import Model.Scout;
+import Model.SortByAge;
+import Model.SortByRole;
+import Model.SortByTeam;
+import Model.SortByTimePlaying;
+import Model.SortingByGoal;
+import Model.SortingwithStrategyDesignPattern;
+import Model.SotrByAssists;
 import Model.UserList;
 import View.SignInScreen;
 import View.ScoutScreen;
@@ -30,6 +36,7 @@ public class ScoutController {
 	        this.theView.addSortByGoalsListener(new sortByGoalsListner());
 	        this.theView.addFilterByTeamListener(new filterByTeamListner());
 	        this.theView.addFilterByRoleListener(new filterByRoleListner());
+	        this.theView.addFilterByAgeListener(new filterByAgeListner());
 	        this.theView.addSortByAssistsListener(new sortByAssistsListner());
 	        this.theView.addSortByPlayingTimeListener(new sortByPlayingTimeListner());
 	}
@@ -37,7 +44,7 @@ public class ScoutController {
 	{
 		   public void actionPerformed(ActionEvent e) 
 		   {
-			   PlayerList players = new PlayerList();
+			   SortingwithStrategyDesignPattern players = new SortByTeam();
 			   String teamName = theView.getTeamName();
 			   Player[] listOfPlayers = null;
 			   if (teamName.equals("Team") ) 
@@ -46,7 +53,7 @@ public class ScoutController {
 			   }
 			   else 
 			   {
-				   listOfPlayers = players.sortByString("team", teamName);
+				   listOfPlayers = players.SortByString(teamName);
 			   }
 			   if (listOfPlayers != null) {
 				   theView.initFindPlayersTable();
@@ -66,10 +73,33 @@ public class ScoutController {
 	{
 		   public void actionPerformed(ActionEvent e) 
 		   {
-			   PlayerList players = new PlayerList();
+			   SortingwithStrategyDesignPattern players = new SortByRole();
 			   String role = theView.getPlayerRole();
 			   Player[] listOfPlayers = null;
-			   listOfPlayers = players.sortByString("role", role);
+			   listOfPlayers = players.SortByString(role);
+			   if (listOfPlayers != null) 
+			   {
+				   theView.initFindPlayersTable();
+				   theView.showFindPlayersTable();
+					for (Player i: listOfPlayers) 
+					{
+						if(i != null)
+						{
+							theView.addItemToFindPlayersTable(i.getPlayerName(), i.getMyTeam().getTeamName(), i.getRole(), i.getGoals(), i.getNumOfAssists(), i.getTotalPlayingTime(), i.getYellowCard(), i.getRedCard(), i.getAge(), i.getIdPlayer());
+				   		
+						}
+				   	}
+			   }
+		   }
+	}
+	class filterByAgeListner implements ActionListener
+	{
+		   public void actionPerformed(ActionEvent e) 
+		   {
+			   SortingwithStrategyDesignPattern players = new SortByAge();
+			   String Age = theView.getAge();
+			   Player[] listOfPlayers = null;
+			   listOfPlayers = players.SortByString(Age);
 			   if (listOfPlayers != null) 
 			   {
 				   theView.initFindPlayersTable();
@@ -90,8 +120,8 @@ public class ScoutController {
 	{
 		   public void actionPerformed(ActionEvent e) 
 		   {
-			   PlayerList players = new PlayerList();
-			   Player[] listOfPlayers = players.SortByInt("playing time");
+			   SortingwithStrategyDesignPattern players = new SortByTimePlaying();
+			   Player[] listOfPlayers = players.Sort();
 			   	theView.initFindPlayersTable();
 			   	theView.showFindPlayersTable();
 			   	for (Player i: listOfPlayers) {
@@ -104,8 +134,8 @@ public class ScoutController {
 	{
 		   public void actionPerformed(ActionEvent e) 
 		   {
-			   PlayerList players = new PlayerList();
-			   Player[] listOfPlayers = players.SortByInt("assists");
+			   SortingwithStrategyDesignPattern players = new SotrByAssists();
+			   Player[] listOfPlayers = players.Sort();
 			   	theView.initFindPlayersTable();
 			   	theView.showFindPlayersTable();
 			   	for (Player i: listOfPlayers) {
@@ -118,8 +148,8 @@ public class ScoutController {
 	{
 		   public void actionPerformed(ActionEvent e) 
 		   {
-			   PlayerList players = new PlayerList();
-			   Player[] listOfPlayers = players.SortByInt("goal");
+			   SortingwithStrategyDesignPattern SortByGoal = new SortingByGoal();
+			   Player[] listOfPlayers = SortByGoal.Sort();
 			   	theView.initFindPlayersTable();
 			   	theView.showFindPlayersTable();
 			   	for (Player i: listOfPlayers) {

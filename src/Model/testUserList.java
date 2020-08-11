@@ -25,13 +25,13 @@ public class testUserList {
 	@Test
 	public void loginTest() {
 		UserList u = new UserList();
-		t.testSignUpPlayer("mor", "hapoel tel aviv", "center back", 15, 1.83, 76.5, "mor@gmail.com", 123456789, "mor", "1");
+		t.testSignUpPlayer("mor", "hapoel tel aviv", "center back", "15", 1.83, 76.5, "mor@gmail.com", 123456789, "mor", "1");
 		assertNotNull("After LOGIN the object will return and not NULL",u.login("mor", "1"));
 	}
 
 	@Test
 	public void SingUpUserTest() {
-		t.testSignUpPlayer("mor", "hapoel tel aviv", "center back", 15, 1.83, 76.5, "mor@gmail.com", 123456789, "mor", "1");
+		t.testSignUpPlayer("mor", "hapoel tel aviv", "center back", "15", 1.83, 76.5, "mor@gmail.com", 123456789, "mor", "1");
 		t.testSignUpScout("itay", "hapoel tel aviv", 123456786, "itay", "1");
 		userList = (ArrayList<User>) t.getUserList();
 		int n = userList.size();

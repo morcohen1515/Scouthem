@@ -26,7 +26,7 @@ public class testPlayer {
 	@Test
 	public void addGameTest()
 	{
-		t.testSignUpPlayer("mor", "hapoel tel aviv", "center back", 15, 1.83, 76.5, "mor@gmail.com", 123456789, "mor", "1");
+		t.testSignUpPlayer("mor", "hapoel tel aviv", "center back", "15", 1.83, 76.5, "mor@gmail.com", 123456789, "mor", "1");
 		Game g = new Game("3.7.20", 1, 0, 90, "Maccabi tel aviv", 1, 2);
 		playerListplayer = t.getTestplayersList();
 		

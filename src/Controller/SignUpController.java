@@ -36,7 +36,7 @@ public class SignUpController {
 						   if (!playerName.equals("") && !playerName.equals("Enter Name")) {
 							   String playerId = theView.getPlayerId();
 							   if (!playerId.isEmpty() && !playerId.equals("ID Number")) {
-								   int playerAge = theView.getPlayerAge();
+								   String playerAge = theView.getPlayerAge();
 								   int playerWeight = theView.getPlayerWeight();
 								   int playerHeight = theView.getPlayerHeight();
 								   String playerTeam = theView.getPlayerTeamName();
